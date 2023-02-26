@@ -26,6 +26,8 @@
 						<% } else if ( id.equals ("pelicula") ) { 	%> <%@include file = "WEB-INF/Pelicula.jsp" %>>
 						<% } else if ( id.equals ("peliculas") ) { 	%> <%@include file = "WEB-INF/Peliculas.jsp" %>>
 						<% } %>
+						
+						
 				</div>
 		</div>
 		<div class="clearbox"><br></div>

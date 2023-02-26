@@ -21,7 +21,7 @@
 		    		<li class="menu-item"><a href="SvlPelicula?id=cartelera">Cartelera</a></li>
 		       		<li class="menu-item"><a href="SvlPelicula?id=estrenos">Próximos estrenos</a></li>
 		       		<li class="menu-item"><a href="http://www.cinestar.com.pe/starcard">Star Card</a></li>
-		        	<li class="menu-item"><a href="svlCine">Nuestros Cines</a></li>
+		        	<li class="menu-item"><a href="SvlCine">Nuestros Cines</a></li>
 		        	<li class="menu-item"><a href="http://www.cinestar.com.pe/ventas_corporativas">Ventas Corporativas</a></li>
 		        	<li class="menu-item"><a href="http://www.cinestar.com.pe/promociones">Promociones</a></li>
 		        	<li class="menu-item"><a href="http://www.cinestar.com.pe/cinefilo_star">Blog</a></li>
