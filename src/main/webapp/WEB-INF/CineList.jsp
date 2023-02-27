@@ -1,20 +1,25 @@
+<%@ page import ="bean.CinePelicula" %>
+<%@ page import ="bean.CineTarifa" %>
+<%@ page import ="java.util.List" %>
+<%@ page import = "bean.Cine"%>
 <%@ page pageEncoding="UTF-8"%>
-<% String[][] acine = ( String [][] ) session.getAttribute("aCines");
+
+<% Cine Cine = ( Cine ) session.getAttribute("Cine");
  %>
-<h2><%=acine[1] %></h2>
+<h2><%=Cine.getRazonSocial() %></h2>
 			<div class="cine-info">
 				<div class="cine-info datos">
-					<p><%=acine[4] %> - <%=acine[5] %></p>
-					<p>Teléfono: <%=acine[5] %></p>
+					<p><%=Cine.getDireccion() %> - <%=Cine.getDetalle() %></p>
+					<p>Teléfono: <%=Cine.getTelefono() %></p>
 					<br/>
 					<div class="tabla">
 					
-					<% String[][] mTarifas =(String[][]) session.getAttribute(" mTarifas ");
+					<%List <CineTarifa> lstCT =(List<CineTarifa>) session.getAttribute("lstCT");
 					boolean bolFila = true;
-					 for (String[] aTarifas : mTarifas) {%>
+					 for (CineTarifa CineTarifa : lstCT) {%>
 						    <div class= <%= bolFila ? "fila" : "fila impar" %>>
-							    <div class="celda-titulo"><%= aTarifas[0] %></div>
-						        <div class="celda"><%= aTarifas[1] %></div>
+							    <div class="celda-titulo"><%=CineTarifa.getDiasSemana()  %></div>
+						        <div class="celda"><%= CineTarifa.getPrecio() %></div>
 						    </div>
 						<% bolFila =! bolFila;  } %>
 					</div>
@@ -22,7 +27,7 @@
 						<p>A partir del 1ro de julio de 2016, Cinestar Multicines realizará el cobro de la comisión de S/. 1.00 adicional al tarifario vigente, a los usuarios que compren sus entradas por el aplicativo de Cine Papaya para Cine Star Comas, Excelsior, Las Américas, Benavides, Breña, San Juan, UNI, Aviación, Sur, Porteño, Tumbes y Tacna.</p>
 					</div>
 				</div>
-				<img src="img/cine/1.2.jpg"/>
+				<img src="img/cine/<%=Cine.getIdCine() %>.2.jpg"/>
 				<br/><br/><h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br/>
 				<div class="cine-info peliculas">
 					<div class="tabla">
@@ -30,19 +35,19 @@
 							<div class="celda-cabecera">Películas</div>
 							<div class="celda-cabecera">Horarios</div>
 						</div>
-					<% String[][] mPeliculas =(String[][]) session.getAttribute("mPeliculas");
+					<% List <CinePelicula> lstCP = (List<CinePelicula>) session.getAttribute("lstCP");
 					 bolFila = false;
-					 for (String[] aPelicula : mPeliculas) {%>
+					 for ( CinePelicula CinePelicula : lstCP) {%>
 						<div class=<%= bolFila ? "fila" : "fila impar" %>>
-							<div class="celda-titulo"> <%= aPelicula[0] %> </div>
-							<div class="celda"><%= aPelicula[1] %></div>
+							<div class="celda-titulo"> <%= CinePelicula.getTitulo() %> </div>
+							<div class="celda"><%= CinePelicula.getHorarios() %></div>
 						</div>
 					<% bolFila = !bolFila; } %>
 					</div>
 				</div>
 			</div>
 			<div>
-				<img style="float:left;" src="img/cine/<%=acine[0] %>.3.jpg"/>
+				<img style="float:left;" src="img/cine/<%=Cine.getIdCine() %>.3.jpg"/>
 				<span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
 					Horario de atención de juegos es de 12:00 m hasta las 10:30 pm. 
 					<br/><br/>
