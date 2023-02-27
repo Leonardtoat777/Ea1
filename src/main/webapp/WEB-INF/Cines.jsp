@@ -1,13 +1,15 @@
 <%@ page pageEncoding="UTF-8"%>
 <br/><h1>Nuestros Cines</h1><br/>
-			<div class="contenido-cine">
-	       	    <img src="img/cine/1.1.jpg" width="227" height="170"/>
-           	   	<div class="datos-cine">
-    		 	  	<h4>Excelsior</h4><br/>
-           			<span>Jirón de la Unión 780 - Lima<br/><br/>Teléfono: 714-1865 anexo 865</span>
-               	</div>
-               	<br/>
-               	<a href="http://www.cinestar.com.pe/multicines/cine/Cinestar-Excelsior">
-               		<img src="img/varios/ico-info2.png" width="150" height="40"/>
-               	</a>
-			</div>
+<% String[][] mcines = (Stirng[][] ) session.getAttribute("mCines");
+	for (String[] aCine : mCines ) { %>
+<div class="contenido-cine">
+     <img src="img/cine/<%= aCine[0] %>.1.jpg" width="227" height="170"/>
+     <div class="datos-cine">
+   	  		<h4><%= aCine[1] %></h4><br/>
+   			<span><%= aCine[4] %>- <%= aCine[7] %><br/><br/>Teléfono: <%= aCine[5] %></span>	
+   		</div>
+    	<br/>
+    	<a href="SvlCine?idCine=<%= aCine[0] %>">
+       		<img src="img/varios/ico-info2.png" width="150" height="40"/>
+     	</a>
+</div>

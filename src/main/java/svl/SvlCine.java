@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import dao.CineDAO;
+
 
 public class SvlCine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,10 +24,13 @@ public class SvlCine extends HttpServlet {
 		response.setContentType("text/html;chartset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		dao.CineDAO cine = new dao.CineDAO();
 		
 		Object idCine = request.getParameter("idCine");
 		if ( idCine == null ) {
-			session.setAttribute("id","4");
+			String [][] mcines = cine.getCines();
+			session.setAttribute("id", mcines == null ? null : "4");
+			session.setAttribute("mcines",mcines);
 		}
 		response.sendRedirect("index.jsp");
 		
